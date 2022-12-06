@@ -3,7 +3,7 @@ from evdev import InputDevice, categorize, ecodes
 print("ACGAM R1 - pad mapping")
 
 #creates object 'gamepad' to store the data
-gamepad = InputDevice('/dev/input/event0')
+gamepad = InputDevice('/dev/input/event2')
 
 print(gamepad)
 
