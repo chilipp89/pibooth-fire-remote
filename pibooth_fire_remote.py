@@ -41,8 +41,8 @@ def run_event_monitor(app):
         if event.type == ecodes.EV_KEY and hasattr(event, "code"):
             if event.value == 1:
                 if event.code == enterBtn:
-                    event = pygame.event.Event(BUTTONDOWN, capture=1, printer=0,
-                                               button=app.buttons.capture)
+                    pygame.event.post(pygame.event.Event(BUTTONDOWN, capture=1, printer=0,
+                                               button=app.buttons.capture))
 
                     LOGGER.info("enterBtn")
                 elif event.code == settingsBtn:
