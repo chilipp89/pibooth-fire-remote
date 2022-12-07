@@ -37,7 +37,7 @@ def pibooth_startup(app):
 def run_event_monitor(app):
     #loop and filter by event code and print the mapped label
     for event in dev.read_loop():
-
+        LOGGER.info(repr(event))
         if event.type == ecodes.EV_KEY and hasattr(event, "code"):
             if event.value == 1:
                 if event.code == enterBtn:
