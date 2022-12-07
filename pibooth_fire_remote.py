@@ -37,7 +37,7 @@ def pibooth_startup(app):
 def run_event_monitor(app):
     #loop and filter by event code and print the mapped label
     for event in dev.read_loop():
-        LOGGER.info(repr(event))
+
         if event.type == ecodes.EV_KEY and hasattr(event, "code"):
             if event.value == 1:
                 if event.code == enterBtn:
@@ -62,6 +62,8 @@ def run_event_monitor(app):
                 elif event.code == right:
                     LOGGER.info("right")
                 elif event.code == forward:
+                    pygame.event.post(pygame.event.Event(BUTTONDOWN, capture=0, printer=1,
+                                                         button=app.buttons.capture))
                     LOGGER.info("forward")
                 elif event.code == backward:
                     LOGGER.info("backward")
