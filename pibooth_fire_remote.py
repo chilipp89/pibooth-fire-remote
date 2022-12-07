@@ -46,6 +46,8 @@ def run_event_monitor(app):
 
                     LOGGER.info("enterBtn")
                 elif event.code == settingsBtn:
+                    pygame.event.post(pygame.event.Event(BUTTONDOWN, capture=1, printer=1,
+                                                         button=app.buttons))
                     LOGGER.info("settingsBtn")
                 if event.code == homeBtn:
                     LOGGER.info("homeBtn")
@@ -63,7 +65,7 @@ def run_event_monitor(app):
                     LOGGER.info("right")
                 elif event.code == forward:
                     pygame.event.post(pygame.event.Event(BUTTONDOWN, capture=0, printer=1,
-                                                         button=app.buttons.capture))
+                                                         button=app.buttons.printer))
                     LOGGER.info("forward")
                 elif event.code == backward:
                     LOGGER.info("backward")
