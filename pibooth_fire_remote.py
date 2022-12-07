@@ -38,7 +38,7 @@ def run_event_monitor(app):
     #loop and filter by event code and print the mapped label
     for event in dev.read_loop():
 
-        if event.type == ecodes.EV_KEY:
+        if event.type == ecodes.EV_KEY and hasattr(event, "code"):
             if event.value == 1:
                 if event.code == enterBtn:
                     event = pygame.event.Event(BUTTONDOWN, capture=1, printer=0,
