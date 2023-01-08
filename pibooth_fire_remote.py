@@ -46,9 +46,9 @@ def pibooth_configure(cfg):
 
 
 @pibooth.hookimpl
-def pibooth_startup(app):
+def pibooth_startup(cfg, app):
     if dev is not None:
-        th = threading.Thread(target=run_event_monitor, args=(app,))
+        th = threading.Thread(target=run_event_monitor, args=(cfg, app))
         th.daemon = True
         th.start()
 
