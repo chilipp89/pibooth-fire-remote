@@ -11,7 +11,7 @@ try:
     #creates object 'fire tv remote' to store the data
     dev = InputDevice('/dev/input/event2')
 except FileNotFoundError:
-    LOGGER.warning("Device not Found. ")
+    LOGGER.warning("Bluetooth device not Found.")
     dev = None
 
 BUTTONDOWN = pygame.USEREVENT + 1
