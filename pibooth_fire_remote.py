@@ -7,6 +7,8 @@ import pibooth
 from pibooth.utils import LOGGER
 
 
+__version__ = "0.1.2"
+
 try:
     #creates object 'fire tv remote' to store the data
     dev = InputDevice('/dev/input/event2')
