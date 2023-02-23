@@ -47,7 +47,7 @@ def main():
         python_requires=">=3.6",
         install_requires=[
             'pibooth>=2.0.0',
-            'evfev',
+            'evdev',
             'pygame'
         ],
         zip_safe=False,  # Don't install the lib as an .egg zipfile
