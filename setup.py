@@ -44,6 +44,7 @@ def main():
             'Bluetooth',
             'Remote'
         ],
+        py_modules=['pibooth_fire_remote'],
         python_requires=">=3.6",
         install_requires=[
             'pibooth>=2.0.0',
@@ -51,7 +52,7 @@ def main():
             'pygame'
         ],
         zip_safe=False,  # Don't install the lib as an .egg zipfile
-        entry_points={'pibooth': ["pibooth_fire_remote = pibooth-fire-remote:pibooth_fire_remote"]},
+        entry_points={'pibooth': ["pibooth_fire_remote = pibooth_fire_remote"]},
     )
 
 
