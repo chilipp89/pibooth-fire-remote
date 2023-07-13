@@ -7,7 +7,7 @@ import pibooth
 from pibooth.utils import LOGGER
 
 
-__version__ = "0.1.3"
+__version__ = "0.1.4"
 
 try:
     #creates object 'fire tv remote' to store the data

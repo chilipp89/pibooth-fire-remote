@@ -51,7 +51,7 @@ def main():
             'pygame'
         ],
         zip_safe=False,  # Don't install the lib as an .egg zipfile
-        entry_points={'pibooth': ["pibooth_fire_remote = pibooth_fire_remote"]},
+        entry_points={'pibooth': ["pibooth_fire_remote = pibooth-fire-remote.pibooth_fire_remote"]},
     )
 
 
