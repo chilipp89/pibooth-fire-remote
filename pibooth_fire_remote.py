@@ -1,6 +1,6 @@
 import logging
 import threading
-
+from select import select
 from evdev import InputDevice, categorize, ecodes
 import pygame
 
@@ -88,6 +88,7 @@ def run_event_monitor(cfg, app):
             printBtn = int(cfg.get(SECTION, 'printBtn'))
             # backward = int(cfg.get(SECTION, 'backward'))
             try:
+                select([dev], [], [])
                 for event in dev.read():
 
                     if event.type == ecodes.EV_KEY and hasattr(event, "code"):
