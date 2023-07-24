@@ -49,7 +49,8 @@ def main():
         install_requires=[
             'pibooth>=2.0.0',
             'evdev',
-            'pygame'
+            'pygame',
+            'pynput'
         ],
         zip_safe=False,  # Don't install the lib as an .egg zipfile
         entry_points={'pibooth': ["pibooth_fire_remote = pibooth_fire_remote"]},

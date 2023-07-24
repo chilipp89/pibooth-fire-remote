@@ -3,11 +3,15 @@ import threading
 from evdev import InputDevice, categorize, ecodes
 import pygame
 
+from pynput.keyboard import Key, Controller
+
+keyboard = Controller()
+
 import pibooth
 from pibooth.utils import LOGGER
 
 
-__version__ = "0.1.7"
+__version__ = "0.1.8"
 
 
 
@@ -100,12 +104,20 @@ def run_event_monitor(cfg, app):
                     elif event.code == playpause:
                         LOGGER.info("Play/Pause")
                     elif event.code == up:
+                        keyboard.press(Key.up)
+                        keyboard.release(Key.up)
                         LOGGER.info("up")
                     elif event.code == down:
+                        keyboard.press(Key.up)
+                        keyboard.release(Key.up)
                         LOGGER.info("down")
                     elif event.code == left:
+                        keyboard.press(Key.left)
+                        keyboard.release(Key.left)
                         LOGGER.info("left")
                     elif event.code == right:
+                        keyboard.press(Key.right)
+                        keyboard.release(Key.right)
                         LOGGER.info("right")
                     elif event.code == forward:
                         pygame.event.post(pygame.event.Event(BUTTONDOWN, capture=0, printer=1,
