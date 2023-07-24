@@ -1,6 +1,5 @@
-import logging
 import threading
-from select import select
+
 from evdev import InputDevice, categorize, ecodes
 import pygame
 
@@ -70,11 +69,10 @@ def pibooth_startup(cfg, app):
 
 def run_event_monitor(cfg, app):
     #loop and filter by event code and print the mapped label
-    dev = get_device(cfg)
     while True:
-        if dev is None:
-            dev = get_device(cfg)
-        else:
+
+        dev = get_device(cfg)
+        if dev is not None:
 
             pictureBtn = int(cfg.get(SECTION, 'pictureBtn'))
             # backBtn = int(cfg.get(SECTION, 'backBtn'))
@@ -88,8 +86,7 @@ def run_event_monitor(cfg, app):
             printBtn = int(cfg.get(SECTION, 'printBtn'))
             # backward = int(cfg.get(SECTION, 'backward'))
             try:
-                select([dev], [], [])
-                for event in dev.read():
+                for event in dev.read_loop():
 
                     if event.type == ecodes.EV_KEY and hasattr(event, "code"):
                         if event.value == 1:
@@ -131,4 +128,4 @@ def run_event_monitor(cfg, app):
                             # elif event.code == backward:
                             #     LOGGER.info("backward")
             except OSError:
-                logging.WARNING("device not found")
+                pass
