@@ -12,7 +12,7 @@ import pibooth
 from pibooth.utils import LOGGER
 
 
-__version__ = "0.2.1"
+__version__ = "0.2.2"
 
 
 
@@ -87,7 +87,7 @@ def run_event_monitor(cfg, app):
             printBtn = int(cfg.get(SECTION, 'printBtn'))
             # backward = int(cfg.get(SECTION, 'backward'))
             try:
-                for event in dev.read_loop():
+                for event in dev.read():
 
                     if event.type == ecodes.EV_KEY and hasattr(event, "code"):
                         if event.value == 1:
