@@ -70,10 +70,11 @@ def pibooth_startup(cfg, app):
 
 def run_event_monitor(cfg, app):
     #loop and filter by event code and print the mapped label
+    dev = get_device(cfg)
     while True:
-
-        dev = get_device(cfg)
-        if dev is not None:
+        if dev is None:
+            dev = get_device(cfg)
+        else:
 
             pictureBtn = int(cfg.get(SECTION, 'pictureBtn'))
             # backBtn = int(cfg.get(SECTION, 'backBtn'))
