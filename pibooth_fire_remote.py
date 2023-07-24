@@ -29,6 +29,10 @@ def get_device(cfg_in):
         LOGGER.warning("Bluetooth device not Found.")
         dev = None
 
+    except PermissionError:
+        LOGGER.warning("Bluetooth device busy")
+        dev = None
+
     return dev
 @pibooth.hookimpl
 def pibooth_configure(cfg):
