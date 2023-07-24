@@ -7,8 +7,12 @@ pip install pibooth-fire-remote
 The default settings are mapped to my fire stick gen 1 remote.
 Map your bluetooth remote using the quick start manual from evdev.
 
+`$ python -m evdev.evtest`
+
+
 ## Configuration
 [FIRE-Remote]
+- device
 - enterBtn
 - backBtn
 - settingsBtn
