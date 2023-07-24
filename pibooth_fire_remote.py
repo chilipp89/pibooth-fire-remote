@@ -7,7 +7,7 @@ import pibooth
 from pibooth.utils import LOGGER
 
 
-__version__ = "0.1.6"
+__version__ = "0.1.7"
 
 
 
@@ -19,8 +19,8 @@ SECTION = "FIRE-Remote"
 def get_device(cfg_in):
     try:
         # creates object 'fire tv remote' to store the data
-        right = str(cfg_in.get(SECTION, 'device'))
-        dev = InputDevice('/dev/input/event2')
+        device_name = str(cfg_in.get(SECTION, 'device'))
+        dev = InputDevice(device_name)
     except FileNotFoundError:
         LOGGER.warning("Bluetooth device not Found.")
         dev = None
