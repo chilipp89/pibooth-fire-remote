@@ -128,5 +128,5 @@ def run_event_monitor(cfg, app):
                                 LOGGER.info("printBtn")
                             # elif event.code == backward:
                             #     LOGGER.info("backward")
-            except OSError as err:
-                logging.WARNING(err)
+            except OSError:
+                logging.WARNING("device not found")
