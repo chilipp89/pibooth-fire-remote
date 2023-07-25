@@ -65,11 +65,9 @@ def pibooth_configure(cfg):
 
 @pibooth.hookimpl
 def pibooth_startup(cfg, app):
-    dev = get_device(cfg)
-    if dev is not None:
-        th = threading.Thread(target=run_event_monitor, args=(cfg, app))
-        th.daemon = True
-        th.start()
+    th = threading.Thread(target=run_event_monitor, args=(cfg, app))
+    th.daemon = True
+    th.start()
 
 def run_event_monitor(cfg, app):
     #loop and filter by event code and print the mapped label
